@@ -3,7 +3,14 @@ import { useInView } from "framer-motion";
 
 const ParticleGrid = ({ className = "" }: { className?: string }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  // Use a ref so the draw loop always reads the *current* value, not a stale closure copy
+  const isInViewRef = useRef(false);
   const isInView = useInView(canvasRef);
+
+  // Keep the ref in sync with the framer-motion value
+  useEffect(() => {
+    isInViewRef.current = isInView;
+  }, [isInView]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -57,7 +64,7 @@ const ParticleGrid = ({ className = "" }: { className?: string }) => {
       // Skip every other frame on mobile for smoother CPU/GPU budget
       frameCount++;
       if (isMobile && frameCount % 2 !== 0) {
-        if (isInView) animId = requestAnimationFrame(draw);
+        if (isInViewRef.current) animId = requestAnimationFrame(draw);
         return;
       }
 
@@ -89,12 +96,13 @@ const ParticleGrid = ({ className = "" }: { className?: string }) => {
         ctx.fill();
       });
 
-      if (isInView) {
+      // Use ref to avoid stale closure — always reflects the latest isInView value
+      if (isInViewRef.current) {
         animId = requestAnimationFrame(draw);
       }
     };
 
-    if (isInView) {
+    if (isInViewRef.current) {
       animId = requestAnimationFrame(draw);
     }
 
@@ -102,6 +110,7 @@ const ParticleGrid = ({ className = "" }: { className?: string }) => {
       cancelAnimationFrame(animId);
       window.removeEventListener("resize", resize);
     };
+  // Only re-run when isInView changes (to start/stop the loop)
   }, [isInView]);
 
   return <canvas ref={canvasRef} className={`absolute inset-0 w-full h-full pointer-events-none ${className}`} />;

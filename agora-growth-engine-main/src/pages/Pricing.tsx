@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
+import type { TFunction } from "i18next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ChevronDown, ChevronUp } from "lucide-react";
@@ -19,7 +20,7 @@ const formatNumber = (num: number) => {
   return new Intl.NumberFormat("en-US").format(num);
 };
 
-const getCustomItems = (customValues: Record<string, number>, t: any) => {
+const getCustomItems = (customValues: Record<string, number>, t: TFunction) => {
   const items = [];
   
   if (customValues.qD > 0) {
@@ -118,7 +119,7 @@ const Pricing = () => {
     { id: "contracting" as Category, label: t('pricing.categories.contracting') },
   ] as const;
 
-  const presetPackages = [
+  const presetPackages = useMemo(() => [
     {
       id: "dr_1",
       cat: "doctor" as Category,
@@ -229,7 +230,7 @@ const Pricing = () => {
       price: 25000,
       feat: t('pricing.packages.contracting.vip.features', { returnObjects: true }) as string[],
     },
-  ];
+  ], [t]);
 
   const sliderFields = [
     { key: "qD", label: t('pricing.custom_fields.graphic_design'), max: 30, step: 1 },
@@ -245,7 +246,8 @@ const Pricing = () => {
 
   const currentPresets = useMemo(
     () => presetPackages.filter((pkg) => pkg.cat === category),
-    [category, presetPackages]
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [category, t] // re-compute when language changes too
   );
 
   const selectedPreset = useMemo(
@@ -546,6 +548,7 @@ const Pricing = () => {
               {t('pricing.send_quote_cta')}
             </Link>
           </aside>
+        </div>
       </section>
 
       <Footer />

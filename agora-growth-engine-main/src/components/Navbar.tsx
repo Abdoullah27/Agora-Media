@@ -5,8 +5,9 @@ import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./LanguageSwitcher";
 
-// TODO: Replace with the real WhatsApp/phone number before launch
-const AGENCY_PHONE = "+201000000000";
+// TODO: Set VITE_AGENCY_PHONE in .env.local before launch
+// Example: VITE_AGENCY_PHONE=+201001234567
+const AGENCY_PHONE = import.meta.env.VITE_AGENCY_PHONE ?? "+201000000000";
 
 type NavLink =
   | { label: string; type: "hash"; href: string }

@@ -5,6 +5,7 @@ import { ArrowRight, Loader2, CheckCircle2, XCircle, Star, ChevronRight } from "
 import { useNavigate } from "react-router-dom";
 import ElegantShape from "./ElegantShape";
 import { submitLead } from "@/services/lead.service";
+import { validateLeadSubmission, sanitizeLeadSubmission } from "@/lib/validation";
 
 // ─── Service Options ──────────────────────────────────────────────────────────
 const SERVICE_KEYS = [
@@ -17,36 +18,61 @@ const SERVICE_KEYS = [
   "service_other",
 ] as const;
 
-// ─── Input class helper ───────────────────────────────────────────────────────
-const inputClass =
-  "w-full bg-background/50 border border-border rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all duration-300";
+// ─── Input class helpers ──────────────────────────────────────────────────────
+const inputBase =
+  "w-full bg-background/50 border rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 transition-all duration-300";
+const inputNormal = `${inputBase} border-border focus:border-accent focus:ring-accent`;
+const inputError  = `${inputBase} border-destructive/60 focus:border-destructive focus:ring-destructive`;
+
+// ─── Field error map ──────────────────────────────────────────────────────────
+type FieldErrors = Partial<Record<"name" | "phone" | "service" | "message", string>>;
 
 // ─── Component ────────────────────────────────────────────────────────────────
-
 const ContactSection = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [formState, setFormState] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setFormState('loading');
+    setFieldErrors({});
 
     const form = e.target as HTMLFormElement;
     const body = new FormData(form);
 
-    submitLead({
-      name: body.get('name') as string,
-      phone: body.get('phone') as string,
+    const rawData = {
+      name:    body.get('name')    as string,
+      phone:   body.get('phone')   as string,
       service: body.get('service') as string,
       message: body.get('message') as string,
-    }).then(() => {
-      setFormState('success');
-      form.reset();
-      setTimeout(() => navigate("/thank-you"), 1000);
-    }).catch(() => {
-      setFormState('error');
-    });
+    };
+
+    // ── Client-side Zod validation ──────────────────────────────────────────
+    const result = validateLeadSubmission(rawData);
+    if (!result.success) {
+      const errors: FieldErrors = {};
+      for (const issue of result.error.issues) {
+        const field = issue.path[0] as keyof FieldErrors;
+        if (field) errors[field] = issue.message;
+      }
+      setFieldErrors(errors);
+      return; // Stop — do not submit
+    }
+
+    // ── Sanitize then send ──────────────────────────────────────────────────
+    const sanitized = sanitizeLeadSubmission(rawData);
+    setFormState('loading');
+
+    submitLead(sanitized)
+      .then(() => {
+        setFormState('success');
+        form.reset();
+        setTimeout(() => navigate("/thank-you"), 1000);
+      })
+      .catch(() => {
+        setFormState('error');
+      });
   };
 
   return (
@@ -110,8 +136,15 @@ const ContactSection = () => {
                   required
                   autoComplete="name"
                   placeholder={t('contact.name_ph')}
-                  className={inputClass}
+                  className={fieldErrors.name ? inputError : inputNormal}
+                  aria-describedby={fieldErrors.name ? "name-error" : undefined}
+                  aria-invalid={!!fieldErrors.name}
                 />
+                {fieldErrors.name && (
+                  <p id="name-error" role="alert" className="text-xs text-destructive mt-1">
+                    {fieldErrors.name}
+                  </p>
+                )}
               </div>
 
               <div className="space-y-2">
@@ -128,8 +161,15 @@ const ContactSection = () => {
                   required
                   autoComplete="tel"
                   placeholder={t('contact.phone_ph')}
-                  className={inputClass}
+                  className={fieldErrors.phone ? inputError : inputNormal}
+                  aria-describedby={fieldErrors.phone ? "phone-error" : undefined}
+                  aria-invalid={!!fieldErrors.phone}
                 />
+                {fieldErrors.phone && (
+                  <p id="phone-error" role="alert" className="text-xs text-destructive mt-1">
+                    {fieldErrors.phone}
+                  </p>
+                )}
               </div>
             </div>
 
@@ -146,7 +186,9 @@ const ContactSection = () => {
                 name="service"
                 required
                 defaultValue=""
-                className={`${inputClass} cursor-pointer`}
+                className={`${fieldErrors.service ? inputError : inputNormal} cursor-pointer`}
+                aria-describedby={fieldErrors.service ? "service-error" : undefined}
+                aria-invalid={!!fieldErrors.service}
               >
                 <option value="" disabled>
                   {t('contact.service_ph')}
@@ -157,6 +199,11 @@ const ContactSection = () => {
                   </option>
                 ))}
               </select>
+              {fieldErrors.service && (
+                <p id="service-error" role="alert" className="text-xs text-destructive mt-1">
+                  {fieldErrors.service}
+                </p>
+              )}
             </div>
 
             {/* Row 3: Optional message */}
@@ -172,8 +219,15 @@ const ContactSection = () => {
                 name="message"
                 rows={3}
                 placeholder={t('contact.msg_ph')}
-                className={`${inputClass} resize-none`}
+                className={`${fieldErrors.message ? inputError : inputNormal} resize-none`}
+                aria-describedby={fieldErrors.message ? "message-error" : undefined}
+                aria-invalid={!!fieldErrors.message}
               />
+              {fieldErrors.message && (
+                <p id="message-error" role="alert" className="text-xs text-destructive mt-1">
+                  {fieldErrors.message}
+                </p>
+              )}
             </div>
 
             {/* Submit */}
@@ -213,7 +267,16 @@ const ContactSection = () => {
               <p className="text-green-500 text-sm text-center mt-2">{t('contact.success_desc')}</p>
             )}
             {formState === 'error' && (
-              <p className="text-destructive text-sm text-center mt-2">{t('contact.fail_desc')}</p>
+              <div className="text-center mt-2 space-y-2">
+                <p className="text-destructive text-sm">{t('contact.fail_desc')}</p>
+                <button
+                  type="button"
+                  onClick={() => setFormState('idle')}
+                  className="text-xs text-muted-foreground underline underline-offset-2 hover:text-foreground transition-colors"
+                >
+                  {t('contact.try_again') || 'Try again'}
+                </button>
+              </div>
             )}
           </form>
         </motion.div>

@@ -35,11 +35,12 @@ describe("Input Validation & Sanitization", () => {
 
   describe("validateLeadSubmission", () => {
     it("should validate valid lead data", () => {
+      // Schema uses name + phone (not email) — updated to match current schema
       const validData = {
         name: "John Doe",
-        email: "john@example.com",
-        company: "ACME Corp",
-        message: "This is a test message with enough content to pass validation.",
+        phone: "+201001234567",
+        service: "service_social",
+        message: "This is a test message.",
         source: "website"
       };
 
@@ -47,10 +48,10 @@ describe("Input Validation & Sanitization", () => {
       expect(result.success).toBe(true);
     });
 
-    it("should reject invalid email", () => {
+    it("should reject phone number that is too short", () => {
       const invalidData = {
         name: "John Doe",
-        email: "invalid-email",
+        phone: "123",
         message: "Valid message"
       };
 
@@ -58,22 +59,22 @@ describe("Input Validation & Sanitization", () => {
       expect(result.success).toBe(false);
     });
 
-    it("should reject short message", () => {
+    it("should reject phone number with invalid characters", () => {
       const invalidData = {
         name: "John Doe",
-        email: "john@example.com",
-        message: "Hi"
+        phone: "abc-not-a-phone",
+        message: "Valid message"
       };
 
       const result = validateLeadSubmission(invalidData);
       expect(result.success).toBe(false);
     });
 
-    it("should reject invalid name characters", () => {
+    it("should reject name that is too short", () => {
       const invalidData = {
-        name: "John123",
-        email: "john@example.com",
-        message: "This is a valid message with enough content."
+        name: "J",
+        phone: "+201001234567",
+        message: "This is a valid message."
       };
 
       const result = validateLeadSubmission(invalidData);
@@ -85,8 +86,8 @@ describe("Input Validation & Sanitization", () => {
     it("should sanitize all fields", () => {
       const dirtyData = {
         name: "  <b>John Doe</b>  ",
-        email: "  JOHN@EXAMPLE.COM  ",
-        company: "  ACME Corp  ",
+        phone: "  +20 100 123 4567  ",
+        service: "  service_social  ",
         message: "  <script>alert('xss')</script>Hello World!  ",
         source: "  website  "
       };
@@ -94,8 +95,7 @@ describe("Input Validation & Sanitization", () => {
       const sanitized = sanitizeLeadSubmission(dirtyData);
 
       expect(sanitized.name).toBe("John Doe");
-      expect(sanitized.email).toBe("john@example.com");
-      expect(sanitized.company).toBe("ACME Corp");
+      expect(sanitized.phone).toBe("+20 100 123 4567");
       expect(sanitized.message).toBe("Hello World!");
       expect(sanitized.source).toBe("website");
     });

@@ -7,23 +7,10 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# Dependencies
-node_modules/
-agora-growth-engine-main/node_modules/
-
-# Build outputs
-dist/
-agora-growth-engine-main/dist/
-dist-ssr/
-agora-growth-engine-main/dist-ssr/
-
-# Environment files
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-agora-growth-engine-main/.env*
+node_modules
+dist
+dist-ssr
+*.local
 
 # Editor directories and files
 .vscode/*
@@ -35,6 +22,3 @@ agora-growth-engine-main/.env*
 *.njsproj
 *.sln
 *.sw?
-
-# Vite
-.vite/

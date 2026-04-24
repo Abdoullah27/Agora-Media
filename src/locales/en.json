@@ -1,0 +1,370 @@
+{
+  "translation": {
+    "nav": {
+      "services": "Services",
+      "projects": "Projects",
+      "portfolio": "Portfolio",
+      "pricing": "Packages",
+      "process": "Methodology",
+      "about": "Agency",
+      "insights": "Insights",
+      "contact": "Contact Us",
+      "language": "العربية"
+    },
+    "hero": {
+      "badge": "AGORA Media",
+      "title_pt1": "Your Strategic Partner in",
+      "title_pt2": "Digital Growth Engineering",
+      "subtitle": "A premier growth agency merging strategy with high-impact creative to scale ambitious brands in Egypt, Saudi Arabia, and beyond.",
+      "cta_primary": "Get a Free Brand Audit",
+      "cta_secondary": "Explore Our Portfolio",
+      "floating_badge": "Data-Driven ROI",
+      "trust_rating": "★ 4.9/5 from 50+ Enterprises",
+      "location": "HQ: Cairo & Riyadh",
+      "experience": "3+ Years of Scaling Performance",
+      "words": ["ACCELERATION", "CREATIVITY", "LEGACY", "RESULTS"]
+    },
+    "portfolio": {
+      "title": "Portfolio",
+      "subtitle": "Our Recent Work",
+      "all": "All",
+      "social_media": "Social Media Designs",
+      "reels": "Reels / Video",
+      "websites": "Websites",
+      "branding": "Branding",
+      "view_project": "View Project",
+      "hero_desc": "Real results for ambitious brands — from creative to performance.",
+      "empty_state": "No projects in this category yet"
+    },
+    "services": {
+      "title": "SERVICES",
+      "subtitle": "What We Do",
+      "s1_title": "Performance Marketing",
+      "s1_desc": "Data-driven campaigns across Meta, Google, & TikTok designed to maximize ROAS and scale acquisitions.",
+      "s2_title": "Creative Strategy",
+      "s2_desc": "Thumb-stopping video and graphic assets tailored for modern consumer behavior.",
+      "s3_title": "Web Development",
+      "s3_desc": "High-conversion landing pages and e-commerce platforms engineered for speed.",
+      "s4_title": "Brand Identity",
+      "s4_desc": "Crafting unforgettable visual identities that resonate with your target market.",
+      "s5_title": "3D & Motion Graphics",
+      "s5_desc": "Immersive 3D renderings and dynamic motion design to elevate your product presentation.",
+      "s6_title": "Mobile Applications",
+      "s6_desc": "Native and cross-platform mobile apps built for seamless user experiences.",
+      "s7_title": "Media Buying",
+      "s7_desc": "Strategic ad placements and budget allocation to maximize your return on ad spend.",
+      "s8_title": "AI Automation",
+      "s8_desc": "Streamline your workflows by connecting tools and automating repetitive tasks with intelligent logic.",
+      "s9_title": "AI Agents",
+      "s9_desc": "Deploy intelligent virtual assistants to handle customer inquiries and operations 24/7."
+    },
+    "process": {
+      "title": "PROCESS",
+      "subtitle": "How We Scale Brands",
+      "p1_title": "Discovery & Audit",
+      "p1_desc": "We analyze your current funnels, competitors, and market positioning.",
+      "p2_title": "Strategy Development",
+      "p2_desc": "Creating a custom roadmap mixing paid media and creative direction.",
+      "p3_title": "Execution & Launch",
+      "p3_desc": "Deploying campaigns with high-quality assets and precise targeting.",
+      "p4_title": "Optimize & Scale",
+      "p4_desc": "A/B testing, cutting waste, and scaling profitable channels aggressively."
+    },
+    "pricing": {
+      "title": "Pricing & Packages",
+      "subtitle": "Flexible plans for brands that want measurable growth.",
+      "heading": "Transparent pricing built for ROI-driven growth.",
+      "description": "Choose the package that matches your budget, traffic goals, and content needs — with optional retainers for strategy, creative, and performance.",
+      "hero_brand": "Agora Media Hub",
+      "hero_heading": "Premium packages and custom campaigns for rapid growth.",
+      "hero_description": "Interactive pricing built for rapid campaign launches across MENA, with ready plans or custom service bundles.",
+      "ad_spend_label": "Recommended ad spend",
+      "ad_spend_placeholder": "0",
+      "selected_package": "Package",
+      "custom_package": "Custom bundle",
+      "quote_intro": "Pricing quote from Agora Media Marketing Hub:",
+      "copy_quote": "Copy quote",
+      "quote_panel_title": "Strategy quote",
+      "fee_label": "Agency fee",
+      "tax_label": "Taxes (15%)",
+      "media_budget_label": "Media budget",
+      "total_label": "Total",
+      "send_quote_cta": "Send quote",
+      "mode_title": "Ready packages or custom",
+      "mode_description": "Choose the display method that suits your execution speed.",
+      "preset_mode": "Ready packages",
+      "custom_mode": "Custom build",
+      "categories": {
+        "doctor": "🩺 Doctors",
+        "retail": "🛍️ Retail & Beauty",
+        "restaurant": "🍔 Restaurants",
+        "company": "🏢 Companies",
+        "contracting": "🏗️ Contracting"
+      },
+      "packages": {
+        "doctor": {
+          "basic": {
+            "name": "Basic (Foundation)",
+            "features": ["8 Graphic Posts", "2 Reels Videos", "Account Setup"]
+          },
+          "premium": {
+            "name": "Premium (Growth)",
+            "features": ["8 Graphic Posts", "6 Reels Videos"]
+          },
+          "vip": {
+            "name": "VIP (Dominance)",
+            "features": ["Professional Photo Shoot", "12 Reels Videos", "Google Maps SEO"]
+          }
+        },
+        "retail": {
+          "basic": {
+            "name": "Basic (Launch)",
+            "features": ["8 Product Designs", "2 Product Reels"]
+          },
+          "premium": {
+            "name": "Premium (Sales)",
+            "features": ["12 Promotional Designs", "6 Professional Reels", "10 Interactive Stories"]
+          },
+          "vip": {
+            "name": "VIP (Branding)",
+            "features": ["Product Photo Shoot", "12 Trend Reels", "Influencer Coordination"]
+          }
+        },
+        "restaurant": {
+          "basic": {
+            "name": "Basic (Appetizers)",
+            "features": ["Menu Photography", "10 Graphic Posts"]
+          },
+          "premium": {
+            "name": "Premium (Main Course)",
+            "features": ["8 Food Cinematography Reels", "12 Graphic Posts", "10 Daily Stories"]
+          },
+          "vip": {
+            "name": "VIP (Chef Special)",
+            "features": ["Weekly Restaurant Coverage", "Comprehensive Marketing Plan"]
+          }
+        },
+        "company": {
+          "basic": {
+            "name": "Startup (Identity)",
+            "features": ["Brand Identity Development", "Professional LinkedIn Management"]
+          },
+          "premium": {
+            "name": "Growth (Lead Gen)",
+            "features": ["Lead Generation Strategy", "2 Motion Graphics Videos"]
+          },
+          "vip": {
+            "name": "Enterprise (Full Management)",
+            "features": ["Complete Platform Management", "Competitor Analysis & Monthly Reports"]
+          }
+        },
+        "contracting": {
+          "basic": {
+            "name": "Basic (Digital Foundation)",
+            "features": ["8 Before/After Designs", "Social Media Setup", "Content Writing"]
+          },
+          "premium": {
+            "name": "Premium (Projects & Leads)",
+            "features": ["2 Sites Video/Photo Shooting", "8 Professional Designs", "Lead Generation Plan"]
+          },
+          "vip": {
+            "name": "VIP (Real Estate Dominance)",
+            "features": ["Monthly Project Coverage", "Motion Graphics Video", "Large Budget Campaign Management"]
+          }
+        }
+      },
+      "custom_fields": {
+        "graphic_design": "Graphic Designs",
+        "reels_videos": "Reels Videos",
+        "motion_graphics": "Motion Graphics (minutes)",
+        "3d_design": "3D Design (static)",
+        "3d_video": "3D Video (animated)",
+        "photo_session": "Photo Session",
+        "additional_platforms": "Additional Platforms",
+        "content_writing": "Content Writing (posts)",
+        "community_management": "Community Management (hours)"
+      },
+      "popular": "Most Popular",
+      "included": "Included",
+      "ai_guidance": "Agora AI Strategy Guidance",
+      "suggestions": {
+        "enter_budget": "Enter your recommended ad spend to get quick guidance from Agora AI.",
+        "contracting_company_low": "Guidance: Good starting budget, priority for Lead Generation campaigns to collect interested customer data.",
+        "contracting_company_high": "Guidance: Strong budget. Allows running Awareness campaigns alongside conversion campaigns.",
+        "other_low": "Guidance: Economic budget, focus ads on Reels videos for maximum reach.",
+        "other_high": "Guidance: Integrated strategy. Distribution between direct engagement increase and sales messaging campaigns."
+      },
+      "plans": {
+        "recommended": "Recommended",
+        "starter": {
+          "title": "Starter",
+          "price": "$2,500/mo",
+          "description": "For lean brands that need fast-start performance and creative support.",
+          "features": [
+            "Performance marketing setup",
+            "Ad creative testing",
+            "Weekly reporting",
+            "Landing page recommendations"
+          ]
+        },
+        "growth": {
+          "title": "Growth",
+          "price": "$5,500/mo",
+          "description": "Best for ambitious companies scaling lead generation and e-commerce growth.",
+          "features": [
+            "Full funnel campaign management",
+            "Advanced creative production",
+            "Conversion rate optimization",
+            "Bi-weekly growth strategy reviews"
+          ]
+        },
+        "enterprise": {
+          "title": "Enterprise",
+          "price": "Custom",
+          "description": "Tailored enterprise retainers for market leaders and multi-channel expansion.",
+          "features": [
+            "Dedicated growth team",
+            "Custom analytics dashboard",
+            "High-volume campaign scaling",
+            "Cross-channel strategy and execution"
+          ]
+        }
+      }
+    },
+    "case_studies": {
+      "title": "CASE STUDIES",
+      "subtitle": "Our Results",
+      "project1": "E-Commerce Scaling",
+      "project1_desc": "Scaled monthly revenue from $50k to $250k in 90 days with TikTok Ads.",
+      "project2": "B2B Lead Gen",
+      "project2_desc": "Reduced Cost Per Acquisition by 60% for a leading SaaS enterprise.",
+      "project3": "Medical App Launch",
+      "project3_desc": "Acquired 100k+ active users in the first month using localized influencer marketing.",
+      "read_case_study": "Read Case Study",
+      "view_all": "View All Projects"
+    },
+    "testimonials": {
+      "title": "TESTIMONIALS",
+      "subtitle": "Client Feedback",
+      "t1_quote": "Work with them has truly made a difference; our ROAS doubled in just the first two months. A team that knows exactly what they're doing.",
+      "t1_author": "Eng. Ahmed Fouad",
+      "t1_role": "Founder, Bright Solutions",
+      "t2_quote": "Their creativity is beyond amazing; they really know how to capture the customer from the very first second. The best agency I've ever dealt with.",
+      "t2_author": "Nourhan Ali",
+      "t2_role": "Owner, Chic Boutique",
+      "t3_quote": "Not just a marketing company, they are true partners in success. They reduced our customer acquisition cost by 40% in record time.",
+      "t3_author": "Dr. Hesham Mahmoud",
+      "t3_role": "Director, Medical Hub",
+      "t4_quote": "Our experience with Agora was exceptional; they were able to reach our target audience accurately and significantly increase sales.",
+      "t4_author": "Mr. Fahd Al-Otaibi",
+      "t4_role": "Marketing Manager, Riyadh Summit",
+      "t5_quote": "A creative and committed team; their designs and videos made a big splash on our accounts. May God give them wellness.",
+      "t5_author": "Sarah Al-Shammari",
+      "t5_role": "Founder, Najd Design",
+      "t6_quote": "Professional work and tangible results from the first campaign. I recommend them for any brand looking to expand in the Saudi market.",
+      "t6_author": "Eng. Faisal bin Salman",
+      "t6_role": "CEO, Innovative Tech",
+      "add_review_title": "Share Your Experience",
+      "add_review_desc": "Were you a client? We'd love to hear your feedback.",
+      "add_review_btn": "Add Review",
+      "industries": {
+        "Healthcare": "Healthcare",
+        "Retail": "Retail",
+        "Lifestyle": "Lifestyle",
+        "Real Estate": "Real Estate",
+        "Design": "Design",
+        "Technology": "Technology"
+      }
+    },
+    "kpis": {
+      "ad_spend": "Ad Spend Managed",
+      "roas": "Avg. ROAS",
+      "retention": "Client Retention",
+      "leads": "Leads Generated"
+    },
+    "faq": {
+      "title": "FAQ",
+      "subtitle": "Common Questions",
+      "q1": "What is your pricing model?",
+      "a1": "We offer custom retainers tailored to your specific goals and ad spend levels.",
+      "q2": "Do you work with startups?",
+      "a2": "Yes, but we require a minimum monthly ad spend to ensure our strategies can yield measurable results.",
+      "q3": "How long does it take to see results?",
+      "a3": "Typical performance campaigns show initial data within 2 weeks, with optimization maturing at 4-6 weeks.",
+      "q4": "Do you offer separate creative services?",
+      "a4": "Yes, we have standalone packages for branding, video editing, and social media retainers."
+    },
+    "contact": {
+      "title": "Let's Talk Growth",
+      "subtitle": "Ready to scale? Let's build something incredible together.",
+      "trust_strip": "Trusted by 50+ brands across Egypt & MENA",
+      "name_label": "Your Name",
+      "name_ph": "Full name",
+      "phone_label": "WhatsApp / Phone",
+      "phone_ph": "+20 100 000 0000",
+      "service_label": "Service Interest",
+      "service_ph": "What can we help with?",
+      "service_social": "Social Media Management",
+      "service_reels": "Reels & Video Production",
+      "service_websites": "Website Design & Dev",
+      "service_branding": "Brand Identity",
+      "service_performance": "Performance Marketing",
+      "service_3d": "3D & Motion Graphics",
+      "service_other": "Other / Not Sure",
+      "msg_label": "Anything else? (Optional)",
+      "msg_ph": "Tell us briefly about your goals or timeline...",
+      "btn_normal": "Get My Free Strategy",
+      "btn_loading": "Sending...",
+      "success_title": "Request Received!",
+      "success_desc": "We'll reach out within 24 hours.",
+      "fail_title": "Something went wrong",
+      "fail_desc": "Please try again or WhatsApp us directly.",
+      "net_err_title": "Network error",
+      "net_err_desc": "Check your internet connection and try again.",
+      "next_title": "What happens next?",
+      "next_1": "We review your request",
+      "next_2": "Schedule a 30-min discovery call",
+      "next_3": "Deliver your custom growth strategy"
+    },
+    "insights": {
+      "title": "Insights",
+      "subtitle": "Digital Strategy & Agency News",
+      "read_more": "Read Full Article",
+      "back": "Back to Insights",
+      "empty": "No news articles found yet.",
+      "categories": {
+        "all": "All Updates",
+        "Social Media News": "Social Media News",
+        "Tech Updates": "Tech Updates",
+        "Marketing Insights": "Marketing Insights",
+        "Company News": "Company News"
+      }
+    },
+    "footer": {
+      "description": "Premium digital marketing agency scaling ambitious brands globally.",
+      "services": "Services",
+      "company": "Company",
+      "contact": "Contact",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "copyright": "© 2026 AGORA Media. All rights reserved."
+    },
+    "whatsapp": {
+      "message": "Let's Chat"
+    },
+    "cookies": {
+      "aria_label": "Cookie consent",
+      "title": "We use cookies",
+      "description": "We use analytics and marketing cookies to improve your experience and measure results. You can choose what to allow.",
+      "accept_all": "Accept All",
+      "essential_only": "Essential Only",
+      "learn_more_prefix": "Learn more in our",
+      "privacy_link": "Privacy Policy"
+    },
+    "breadcrumb": {
+      "home": "Home",
+      "portfolio": "Portfolio",
+      "insights": "Insights"
+    }
+  }
+}

@@ -26,7 +26,7 @@ const FAQSection = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <p className="text-sm font-display tracking-[0.3em] uppercase text-accent mb-3">
+          <p className="text-[16px] md:text-[20px] font-display tracking-[0.3em] uppercase text-accent mb-3">
             {t('faq.title')}
           </p>
           <h2 className="text-3xl md:text-5xl font-heading font-bold text-gradient">

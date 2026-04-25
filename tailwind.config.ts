@@ -12,13 +12,15 @@ export default {
       screens: { "2xl": "1400px" },
     },
     extend: {
+      screens: {
+        "2xl-ultra": "1990px",
+      },
       fontFamily: {
-        display: ['"Cal Sans"', 'system-ui', 'sans-serif'],
+        display: ['"Poppins"', 'system-ui', 'sans-serif'],
         greek: ['"Cinzel"', 'serif'],
         heading: ['"Poppins"', 'system-ui', 'sans-serif'],
         bold: ['"Oswald"', 'system-ui', 'sans-serif'],
         body: ['"Inter"', 'system-ui', 'sans-serif'],
-        arabic: ['"Noto Sans Arabic"', 'system-ui', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace'],
         sans: ['"Inter"', 'system-ui', 'sans-serif'],
       },

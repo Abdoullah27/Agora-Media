@@ -21,70 +21,70 @@ const formatNumber = (num: number) => {
 
 const getCustomItems = (customValues: Record<string, number>, t: any) => {
   const items = [];
-  
+
   if (customValues.qD > 0) {
     items.push({
       label: t('pricing.custom_fields.graphic_design'),
       price: customValues.qD * 150,
     });
   }
-  
+
   if (customValues.qR > 0) {
     items.push({
       label: t('pricing.custom_fields.reels_videos'),
       price: customValues.qR * 300,
     });
   }
-  
+
   if (customValues.qM > 0) {
     items.push({
       label: t('pricing.custom_fields.motion_graphics'),
       price: customValues.qM * 500,
     });
   }
-  
+
   if (customValues.q3DD > 0) {
     items.push({
       label: t('pricing.custom_fields.3d_design'),
       price: customValues.q3DD * 800,
     });
   }
-  
+
   if (customValues.q3DV > 0) {
     items.push({
       label: t('pricing.custom_fields.3d_video'),
       price: customValues.q3DV * 1200,
     });
   }
-  
+
   if (customValues.qS > 0) {
     items.push({
       label: t('pricing.custom_fields.photo_session'),
       price: customValues.qS * 1000,
     });
   }
-  
+
   if (customValues.qP > 0) {
     items.push({
       label: t('pricing.custom_fields.additional_platforms'),
       price: customValues.qP * 2000,
     });
   }
-  
+
   if (customValues.qW > 0) {
     items.push({
       label: t('pricing.custom_fields.content_writing'),
       price: customValues.qW * 50,
     });
   }
-  
+
   if (customValues.qC > 0) {
     items.push({
       label: t('pricing.custom_fields.community_management'),
       price: customValues.qC * 20,
     });
   }
-  
+
   return items;
 };
 
@@ -432,9 +432,8 @@ const Pricing = () => {
                     key={plan.id}
                     type="button"
                     onClick={() => setSelectedPresetId(plan.id)}
-                    className={`relative flex flex-col justify-between rounded-[2.5rem] p-8 text-start transition-all duration-500 border ${
-                      plan.id === selectedPresetId ? "bg-white/[0.08] border-white/40 shadow-[0_0_40px_rgba(255,255,255,0.05)]" : "bg-white/[0.02] border-white/5 hover:border-white/20"
-                    }`}
+                    className={`relative flex flex-col justify-between rounded-[2.5rem] p-8 text-start transition-all duration-500 border ${plan.id === selectedPresetId ? "bg-white/[0.08] border-white/40 shadow-[0_0_40px_rgba(255, 255, 255, 0.05)]" : "bg-white/[0.02] border-white/5 hover:border-white/20"
+                      }`}
                   >
                     {plan.popular && (
                       <span className="absolute inset-x-0 top-0 mx-auto -translate-y-1/2 inline-flex rounded-full bg-white px-5 py-1.5 text-[9px] font-black uppercase tracking-[0.4em] text-black shadow-2xl">
@@ -462,11 +461,11 @@ const Pricing = () => {
                       <span className="text-3xl font-black font-mono text-white tracking-tighter">{customValues[field.key]}</span>
                     </div>
                     <div className="flex items-center gap-6">
-                      <button 
-                         onClick={() => setCustomValues(p => ({ ...p, [field.key]: Math.max(field.key === "qP" ? 1 : 0, p[field.key] - 1) }))}
-                         className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all text-white/40"
+                      <button
+                        onClick={() => setCustomValues(p => ({ ...p, [field.key]: Math.max(field.key === "qP" ? 1 : 0, p[field.key] - 1) }))}
+                        className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all text-white/40"
                       >
-                         <ChevronDown className="w-5 h-5" />
+                        <ChevronDown className="w-5 h-5" />
                       </button>
                       <input
                         type="range"
@@ -482,11 +481,11 @@ const Pricing = () => {
                         }
                         className="custom-slider flex-grow"
                       />
-                      <button 
-                         onClick={() => setCustomValues(p => ({ ...p, [field.key]: Math.min(field.max, p[field.key] + 1) }))}
-                         className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all text-white/40"
+                      <button
+                        onClick={() => setCustomValues(p => ({ ...p, [field.key]: Math.min(field.max, p[field.key] + 1) }))}
+                        className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all text-white/40"
                       >
-                         <ChevronUp className="w-5 h-5" />
+                        <ChevronUp className="w-5 h-5" />
                       </button>
                     </div>
                   </div>
@@ -519,14 +518,14 @@ const Pricing = () => {
             </div>
 
             <div className="space-y-4 mb-10 rounded-[2rem] bg-black/40 p-8 border border-white/10">
-                <div className="flex justify-between text-[11px] font-black text-white/30 uppercase tracking-widest">
-                  <span>{t('pricing.fee_label')}</span>
-                  <span className="font-mono text-white tracking-normal text-sm">{formatNumber(Math.round(subtotal))} {currency}</span>
-                </div>
-                <div className="flex justify-between text-[11px] font-black text-white/30 uppercase tracking-widest">
-                  <span>{t('pricing.media_budget_label')}</span>
-                  <span className="font-mono text-white tracking-normal text-sm">{formatNumber(Math.round(adSpend * rate))} {currency}</span>
-                </div>
+              <div className="flex justify-between text-[11px] font-black text-white/30 uppercase tracking-widest">
+                <span>{t('pricing.fee_label')}</span>
+                <span className="font-mono text-white tracking-normal text-sm">{formatNumber(Math.round(subtotal))} {currency}</span>
+              </div>
+              <div className="flex justify-between text-[11px] font-black text-white/30 uppercase tracking-widest">
+                <span>{t('pricing.media_budget_label')}</span>
+                <span className="font-mono text-white tracking-normal text-sm">{formatNumber(Math.round(adSpend * rate))} {currency}</span>
+              </div>
             </div>
 
             <div className="rounded-[2.5rem] bg-white p-10 text-center text-black shadow-2xl mb-10">
@@ -541,7 +540,7 @@ const Pricing = () => {
 
             <Link
               to="/#contact"
-              className="w-full h-20 flex items-center justify-center rounded-full bg-white text-black text-xs font-black uppercase tracking-[0.3em] transition-all hover:shadow-[0_0_50px_rgba(255,255,255,0.25)]"
+              className="w-full h-20 flex items-center justify-center rounded-full bg-white text-black text-xs font-black uppercase tracking-[0.3em] transition-all hover:shadow-[0_0_50px_rgba(255 ,255 , 255, 0.25)]"
             >
               {t('pricing.send_quote_cta')}
             </Link>

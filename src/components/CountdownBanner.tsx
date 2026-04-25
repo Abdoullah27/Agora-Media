@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, forwardRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 
@@ -10,13 +10,13 @@ interface CountdownBannerProps {
   onHeightChange?: (height: number) => void;
 }
 
-const CountdownBanner = ({
+const CountdownBanner = forwardRef<HTMLDivElement, CountdownBannerProps>(({
   targetDate,
   title,
   ctaText = "Claim Offer",
   ctaHref = "#contact",
   onHeightChange,
-}: CountdownBannerProps) => {
+}, _ref) => {
   const [visible, setVisible] = useState(true);
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const bannerRef = useRef<HTMLDivElement>(null);
@@ -66,6 +66,7 @@ const CountdownBanner = ({
     <AnimatePresence>
       {visible && (
         <motion.div
+          key="countdown-banner"
           ref={bannerRef}
           initial={{ height: 0, opacity: 0 }}
           animate={{ height: "auto", opacity: 1 }}
@@ -110,6 +111,8 @@ const CountdownBanner = ({
       )}
     </AnimatePresence>
   );
-};
+});
+
+CountdownBanner.displayName = "CountdownBanner";
 
 export default CountdownBanner;

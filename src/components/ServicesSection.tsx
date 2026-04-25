@@ -26,7 +26,7 @@ const ServicesSection = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <div className="text-[10px] font-greek tracking-[0.4em] uppercase text-white/50 mb-4">
+          <div className="text-[16px] md:text-[20px] font-greek tracking-[0.4em] uppercase text-white/50 mb-4">
             {t('services.title')}
           </div>
           <h2 className="text-4xl md:text-5xl font-greek font-bold text-white">

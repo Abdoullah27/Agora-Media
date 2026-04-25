@@ -36,7 +36,7 @@ const HeroSection = () => {
             <AnimatedHeadline words={words} />
           </div>
 
-          <p className="max-w-xl mx-auto -mt-4 text-[10px] md:text-xs leading-relaxed text-white/30 font-light tracking-[0.6em] uppercase px-4">
+          <p className="max-w-xl mx-auto -mt-4 text-[10px] md:text-[17px] leading-relaxed text-white/30 font-light tracking-[0.2em] uppercase px-4">
             {t('hero.subtitle')}
           </p>
 

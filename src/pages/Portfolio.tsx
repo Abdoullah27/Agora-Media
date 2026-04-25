@@ -51,7 +51,7 @@ const Portfolio = () => {
         projectDate: p.projectDate ?? "",
         category: (p.category as PortfolioCategory) ?? "Websites",
         imageUrl: p.imageUrl,
-        link: p.link || "",
+        link: p.link ?? "",
         tags: p.tags || [],
       };
     }), [getItemsByType, currentLang]);
@@ -108,16 +108,16 @@ const Portfolio = () => {
                 key={cat}
                 id={`filter-${cat.replace(/\s+/g, "-").toLowerCase()}`}
                 onClick={() => setActiveCategory(cat)}
-                className={`relative px-5 py-2 rounded-full font-display text-xs tracking-wider uppercase transition-all duration-300 ${
-                  isActive
-                    ? "bg-accent text-white neon-glow-red border border-accent/60"
-                    : "bg-secondary/60 text-muted-foreground hover:text-foreground border border-border hover:border-accent/30"
-                }`}
+                className={`relative px-5 py-2 rounded-full text-xs tracking-wider uppercase transition-all duration-300 ${isActive
+                  ? "text-white neon-glow-red border border-accent/60"
+                  : "bg-secondary/60 text-muted-foreground hover:text-foreground border border-border hover:border-accent/30"
+                  }`}
+                style={{ fontFamily: "unset" }}
               >
                 {isActive && (
                   <motion.span
                     layoutId="active-pill"
-                    className="absolute inset-0 rounded-full bg-accent -z-10"
+                    className="absolute inset-0 rounded-full -z-10"
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   />
                 )}
@@ -171,7 +171,6 @@ const Portfolio = () => {
                         <img
                           src={item.imageUrl}
                           alt={item.title}
-                          loading="lazy"
                           className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-90 group-hover:opacity-100"
                         />
                       ) : (

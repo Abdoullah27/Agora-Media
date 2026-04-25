@@ -24,7 +24,7 @@ const TestimonialsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <div className="text-[10px] font-greek tracking-[0.4em] uppercase text-white/50 mb-4">
+          <div className="text-[16px] md:text-[20px] font-greek tracking-[0.4em] uppercase text-white/50 mb-4">
             {t('testimonials.title')}
           </div>
           <h2 className="text-4xl md:text-5xl font-greek font-bold text-white uppercase tracking-wider">
@@ -34,12 +34,12 @@ const TestimonialsSection = () => {
       </div>
 
       <div className="relative flex overflow-hidden">
-        <motion.div 
+        <motion.div
           className="flex gap-6 whitespace-nowrap animate-marquee-slow"
           style={{ width: "fit-content" }}
         >
           {[...testimonials, ...testimonials].map((t, index) => (
-            <div 
+            <div
               key={index}
               className="rounded-[24px] border border-white/10 bg-white/[0.04] backdrop-blur-xl p-8 w-[350px] md:w-[450px] flex-shrink-0 flex flex-col gap-6"
             >
@@ -63,7 +63,7 @@ const TestimonialsSection = () => {
           ))}
 
           {/* Add Review Card */}
-          <div 
+          <div
             className="rounded-[24px] border border-white/10 bg-white/[0.02] backdrop-blur-xl p-8 w-[350px] md:w-[450px] flex-shrink-0 flex flex-col items-center justify-center text-center gap-6 border-dashed hover:bg-white/[0.05] transition-all cursor-pointer group"
           >
             <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center group-hover:scale-110 transition-transform">

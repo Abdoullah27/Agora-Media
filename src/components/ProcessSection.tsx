@@ -20,7 +20,7 @@ const ProcessSection = () => {
       <BackgroundPaths />
       <div className="max-w-6xl mx-auto relative z-10 px-6">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
-          
+
           {/* Left Sticky Header */}
           <div className="lg:col-span-5 relative">
             <motion.div
@@ -29,18 +29,18 @@ const ProcessSection = () => {
               viewport={{ once: true }}
               className="sticky top-32"
             >
-              <p className="text-[10px] font-greek font-black tracking-[0.4em] uppercase text-white/40 mb-4">
+              <p className="text-[16px] md:text-[20px] font-greek font-black tracking-[0.4em] uppercase text-white/40 mb-4">
                 {t('process.title')}
               </p>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-greek font-black text-white leading-[1.1] mb-6 uppercase tracking-tighter">
                 {t('process.subtitle')}
               </h2>
-              <p className="text-white/40 text-sm leading-relaxed mb-8 max-w-md uppercase tracking-wider">
-                {currentLang === 'en' 
-                  ? 'We employ a strict, data-driven methodology. No guessing. Just clear strategies and flawless execution.' 
+              <p className="text-white/40 text-[16px] md:text-[18px] leading-relaxed mb-8 max-w-md uppercase tracking-wider">
+                {currentLang === 'en'
+                  ? 'We employ a strict, data-driven methodology. No guessing. Just clear strategies and flawless execution.'
                   : 'نطبق منهجية صارمة تعتمد على البيانات. لا مجال للتخمين، فقط استراتيجيات واضحة وتنفيذ لا تشوبه شائبة.'}
               </p>
-              
+
               <div className="hidden lg:block w-24 h-px bg-white/20 rounded-full" />
             </motion.div>
           </div>
@@ -58,7 +58,7 @@ const ProcessSection = () => {
               >
                 {/* Background glow specific to card hover */}
                 <div className="absolute inset-0 bg-white/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
+
                 <div className="relative z-10">
                   <div className="flex flex-col sm:flex-row items-start sm:items-baseline gap-3 sm:gap-8 mb-6 sm:mb-8">
                     <span className="text-4xl sm:text-6xl md:text-8xl font-greek font-black text-transparent text-stroke group-hover:text-white/10 transition-colors duration-500">
@@ -68,9 +68,9 @@ const ProcessSection = () => {
                       {step.title}
                     </h3>
                   </div>
-                  
+
                   <div className="w-full h-px bg-white/10 mb-6 sm:mb-8 group-hover:bg-white/20 transition-colors" />
-                  
+
                   <p className="text-muted-foreground text-base sm:text-lg leading-relaxed pl-0 sm:pl-2 md:pl-24">
                     {step.desc}
                   </p>
